@@ -8,7 +8,7 @@ const Login = () => {
   const MakeLogin = async () => {
     const res = await LoginApi(phone, psw);
 
-    res.access_token ? alert("go") : alert(res.detail);
+    res.access_token ? alert("go") : alert(res.msg);
   };
 
   return (

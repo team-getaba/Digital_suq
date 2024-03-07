@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://192.168.250.48:8000"; // Replace with your main domain
+axios.defaults.baseURL = "http://192.168.137.114:8000"; // Replace with your main domain
 
 const token = localStorage.getItem("token");
 

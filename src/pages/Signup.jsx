@@ -12,7 +12,7 @@ const Signup = () => {
   const singupbtn = async () => {
     const res = await SignUpApi(fname, lname, phone, location, role, psw);
     console.log(res);
-    res.access_token ? alert("abdc") : alert(res.detail);
+    res.access_token ? alert("go") : alert(res.detail);
   };
 
   return (
