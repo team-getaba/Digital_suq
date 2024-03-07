@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { SignUpApi } from "../api/index";
 
 const Signup = () => {
+  const [fname, setFName] = useState();
+  const [lname, setLName] = useState();
+  const [psw, setPSW] = useState();
+  const [phone, setPhone] = useState();
+  const [location, setLocation] = useState();
+  const [role, setRole] = useState();
+
+  const singupbtn = async () => {
+    const res = await SignUpApi(fname, lname, phone, location, role, psw);
+    console.log(res);
+    res.access_token ? alert("abdc") : alert(res.detail);
+  };
+
   return (
     <div className="flex justify-center items-center h-screen flex-col">
       <h1 className="text-4xl mb-8">DigitalSuq</h1>
@@ -19,6 +33,7 @@ const Signup = () => {
               id="grid-first-name"
               type="text"
               placeholder="Jane"
+              onChange={(e) => setFName(e.target.value)}
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
@@ -33,6 +48,7 @@ const Signup = () => {
               id="grid-last-name"
               type="text"
               placeholder="Doe"
+              onChange={(e) => setLName(e.target.value)}
             />
           </div>
         </div>
@@ -49,6 +65,7 @@ const Signup = () => {
               id="grid-password"
               type="password"
               placeholder="******************"
+              onChange={(e) => setPSW(e.target.value)}
             />
             <p className="text-gray-600 text-xs italic">
               Make it as long and as crazy as you'd like
@@ -68,6 +85,7 @@ const Signup = () => {
               id="grid-phone"
               type="tel"
               placeholder="09-102-030-40"
+              onChange={(e) => setPhone(e.target.value)}
             />
           </div>
           <div className="w-full md:w-1/2 px-3">
@@ -82,6 +100,7 @@ const Signup = () => {
               id="grid-location"
               type="text"
               placeholder="City, State"
+              onChange={(e) => setLocation(e.target.value)}
             />
           </div>
         </div>
@@ -96,6 +115,7 @@ const Signup = () => {
             <select
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-country"
+              onChange={(e) => setRole(e.target.value)}
             >
               {/* <option>Select a Role</option> */}
               <option>Seller</option>
@@ -107,13 +127,14 @@ const Signup = () => {
           <button
             className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
+            onClick={singupbtn}
           >
             Sign Up
           </button>
         </div>
         <p className="text-sm mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500 hover:text-blue-700">
+          <a href="/" className="text-blue-500 hover:text-blue-700">
             Login
           </a>
         </p>

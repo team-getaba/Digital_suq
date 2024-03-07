@@ -1,6 +1,16 @@
 import React from "react";
+import { LoginApi } from "../api/index";
 
 const Login = () => {
+  const [phone, setPhone] = React.useState();
+  const [psw, setPsw] = React.useState();
+
+  const MakeLogin = async () => {
+    const res = await LoginApi(phone, psw);
+
+    res.access_token ? alert("go") : alert(res.detail);
+  };
+
   return (
     <div className="flex justify-center items-center h-screen flex-col">
       <h1 className="text-4xl mb-8">DigitalSuq</h1>
@@ -18,6 +28,7 @@ const Login = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-phone"
               type="tel"
+              onChange={(e) => setPhone(e.target.value)}
               placeholder="09-102-030-40"
             />
           </div>
@@ -32,6 +43,7 @@ const Login = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
               type="password"
+              onChange={(e) => setPsw(e.target.value)}
               placeholder="******************"
             />
           </div>
@@ -41,6 +53,7 @@ const Login = () => {
           <button
             className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
+            onClick={MakeLogin}
           >
             Login
           </button>
