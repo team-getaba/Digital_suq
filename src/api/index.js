@@ -63,3 +63,13 @@ export const SignUpApi = async (
     return error;
   }
 };
+
+export const catagoryList = async () => {
+  const res = await axios.get("/catagory");
+  return res;
+};
+
+export const catagorySpecfic = async (cattype) => {
+  const res = await axios.get(`/catagory/${cattype}`);
+  return res;
+};
