@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { subScribe } from "../api";
 import Navbar from "../component/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const SubscriptionPlan = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const navigate = useNavigate();
 
   const plans = [
     {
@@ -33,6 +35,7 @@ const SubscriptionPlan = () => {
     setSelectedPlan(plans[index]);
     const res = await subScribe(plans[index].price);
     console.log(res?.data?.data?.checkout_url);
+    res?.data?.data?.checkout_url && navigate(res?.data?.data?.checkout_url);
   };
 
   return (

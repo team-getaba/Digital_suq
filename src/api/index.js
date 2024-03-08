@@ -140,7 +140,7 @@ export const myPosts = async () => {
 
 export const subScribe = async (amount) => {
   const res = await axios.get(
-    `/pay?ret_url=${"http://localhost:5173/"}&amount=${amount}`
+    `/pay?ret_url=${"https://digital-suq.netlify.app"}&amount=${amount}`
   );
   return res;
 };
