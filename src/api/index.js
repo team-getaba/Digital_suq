@@ -138,7 +138,9 @@ export const myPosts = async () => {
   return res;
 };
 
-export const subScribe = async () => {
-  const res = await axios.get(`/pay?ret_url=${"http://localhost:5173/"}`);
+export const subScribe = async (amount) => {
+  const res = await axios.get(
+    `/pay?ret_url=${"http://localhost:5173/"}&amount=${amount}`
+  );
   return res;
 };
