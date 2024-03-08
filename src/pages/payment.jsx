@@ -8,17 +8,20 @@ const SubscriptionPlan = () => {
     {
       name: "Bronze",
       postLimit: 2,
+      price: 100,
       priceRange: "Up to 1000 BRR",
       teamSupport: true,
     },
     {
       name: "Silver",
+      price: 200,
       postLimit: 10,
       priceRange: "Up to 10,000 BRR",
       teamSupport: true,
     },
     {
       name: "Gold",
+      price: 500,
       postLimit: "Unlimited",
       priceRange: "Unlimited",
       teamSupport: true,
@@ -27,8 +30,8 @@ const SubscriptionPlan = () => {
 
   const handlePlanSelect = async (index) => {
     setSelectedPlan(plans[index]);
-    const res = await subScribe();
-    console.log(res);
+    const res = await subScribe(plans[index].price);
+    console.log(res?.data?.data?.checkout_url);
   };
 
   return (
