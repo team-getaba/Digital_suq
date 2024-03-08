@@ -73,3 +73,21 @@ export const catagorySpecfic = async (cattype) => {
   const res = await axios.get(`/catagory/${cattype}`);
   return res;
 };
+
+export const offer = async (poster_id, post_id, details, price, offerer_id) => {
+  const data = {
+    poster_id: poster_id,
+    post_id: post_id,
+    details: details,
+    price: price,
+    offerer_id: offerer_id,
+  };
+
+  const res = await axios.post(`/offer`, data);
+  return res;
+};
+
+export const offerList = async (post_id) => {
+  const res = await axios.get(`post/offer/${post_id}`);
+  return res;
+};
