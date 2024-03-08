@@ -1,14 +1,16 @@
 import React from "react";
 import { LoginApi } from "../api/index";
+import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom
 
 const Login = () => {
   const [phone, setPhone] = React.useState();
   const [psw, setPsw] = React.useState();
+  const navigate = useNavigate();
 
   const MakeLogin = async () => {
     const res = await LoginApi(phone, psw);
-
-    res.access_token ? alert("go") : alert(res.msg);
+    console.log(res);
+    res.access_token ? navigate("/dembegnapost") : alert(res.msg);
   };
 
   return (

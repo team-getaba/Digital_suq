@@ -3,11 +3,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 function App() {
-  return (
-    <div>
-      <div className="bg-red-200 w-full h-[70vh]"></div>
-    </div>
-  );
+  return <Login />;
 }
 
 export default App;
