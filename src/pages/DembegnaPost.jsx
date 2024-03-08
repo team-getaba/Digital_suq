@@ -19,7 +19,7 @@ const DembegnaPost = () => {
       category,
       deliveryLocation,
       productName,
-      `${minPrice} ${maxPrice}`,
+      `${minPrice} to ${maxPrice}`,
       ""
     );
 
