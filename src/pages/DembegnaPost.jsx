@@ -30,11 +30,8 @@ const DembegnaPost = () => {
   return (
     <>
       <Navbar />
-      <div className="p-10 m-8  ">
-        <form
-          onSubmit={handleSubmit}
-          className=" border-2 rounded-md  border-gray-800 max-w-2xl mx-auto p-8 "
-        >
+      <div className="p-10 ">
+        <form onSubmit={handleSubmit} className="  max-w-2xl mx-auto p-8 m-8">
           <div className="mb-4 ">
             <label htmlFor="productName" className="  block font-bold mb-2">
               Product Name
@@ -42,7 +39,7 @@ const DembegnaPost = () => {
             <input
               type="text"
               id="productName"
-              className=" border-2 rounded-md  border-gray-800 appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="chama, suri"
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
@@ -54,7 +51,7 @@ const DembegnaPost = () => {
             </label>
             <textarea
               id="productDetail"
-              className="appearance-none border border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="explain indetail what you want including add as much as detail as you want "
               rows="4"
               value={productDetail}
@@ -89,7 +86,7 @@ const DembegnaPost = () => {
             <input
               type="text"
               id="deliveryLocation"
-              className="appearance-none border border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="Jima"
               value={deliveryLocation}
               onChange={(e) => setDeliveryLocation(e.target.value)}
@@ -111,7 +108,7 @@ const DembegnaPost = () => {
                 <input
                   type="text"
                   id="priceRangeMin"
-                  className="appearance-none border border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   placeholder="Enter min price"
                   value={minPrice}
                   onChange={(e) => setMinPrice(e.target.value)}
@@ -124,7 +121,7 @@ const DembegnaPost = () => {
                 <input
                   type="text"
                   id="priceRangeMax"
-                  className="appearance-none border border-gray-800 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   placeholder="Enter max price"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(e.target.value)}
@@ -134,7 +131,7 @@ const DembegnaPost = () => {
           </div>
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Submit
           </button>

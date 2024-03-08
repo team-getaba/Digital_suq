@@ -128,3 +128,8 @@ export const myPosts = async () => {
   const res = await axios.get(`post/me`);
   return res;
 };
+
+export const subScribe = async () => {
+  const res = await axios.get(`/pay?ret_url=${"http://localhost:5173/"}`);
+  return res;
+};

@@ -1,23 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ username }) => {
   return (
-    <nav className="bg-gray-800 p-4 flex justify-evenly items-center text-white">
-      <div className=" w-3/4">
-        <a
-          href="/dembegnapost"
-          className="mr-10 text-white hover:text-gray-300"
-        >
+    <nav className="bg-gray-800 px-[10%] py-4 flex justify-between items-center text-white">
+      <div>BaleSuq</div>
+      <div className="flex justify-center items-center w-3/4 gap-[10%]">
+        <Link to="/dembegnapost" className="mr-10 hover:text-gray-300">
           Post
-        </a>
-        <a href="/dembegnaorders" className="text-white hover:text-gray-300">
+        </Link>
+        <Link to="/dembegnaorders" className=" hover:text-gray-300">
           Orders
-        </a>
+        </Link>
       </div>
       <div>
-        <a href="/Dembegnaaccount" className="text-white hover:text-gray-300">
+        <Link
+          to="/Dembegnaaccount"
+          className=" hover:text-gray-300 flex justify-center items-center gap-3"
+        >
           {localStorage.getItem("username")}
-        </a>
+          <div className="bg-red-200 h-[2em] w-[2em] rounded-full"></div>
+        </Link>
       </div>
     </nav>
   );
