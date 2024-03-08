@@ -96,3 +96,24 @@ export const userDeatil = async () => {
   const res = await axios.get(`user/account`);
   return res;
 };
+
+export const postProduct = async (
+  detail,
+  catagory,
+  location,
+  product_name,
+  price_range,
+  img
+) => {
+  const data = {
+    detail: detail,
+    catagory: catagory,
+    product_name: product_name,
+    location: location,
+    price_range: price_range,
+    img: img,
+  };
+
+  const res = await axios.post("post", data);
+  return res;
+};
