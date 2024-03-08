@@ -1,6 +1,7 @@
 import React from "react";
 import { LoginApi } from "../api/index";
 import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom
+// import { userDeatil } from "../api";
 
 const Login = () => {
   const [phone, setPhone] = React.useState();
@@ -9,7 +10,8 @@ const Login = () => {
 
   const MakeLogin = async () => {
     const res = await LoginApi(phone, psw);
-    console.log(res);
+    console.log(res.fname, res.lname);
+    localStorage.setItem("username", res.fname + " " + res.lname);
     res.access_token ? navigate("/dembegnapost") : alert(res.msg);
   };
 

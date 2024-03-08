@@ -15,8 +15,9 @@ const Navbar = ({ username }) => {
         </a>
       </div>
       <div>
-        <span className="mr-4 text-white">{username}</span>
-        user name
+        <a href="/Dembegnaaccount" className="text-white hover:text-gray-300">
+          {localStorage.getItem("username")}
+        </a>
       </div>
     </nav>
   );
