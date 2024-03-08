@@ -97,6 +97,11 @@ export const userDeatil = async () => {
   return res;
 };
 
+export const totalOffers = async (post_id) => {
+  const res = await axios.get(`/post/offer/${post_id}`);
+  return res;
+};
+
 export const postProduct = async (
   detail,
   catagory,
