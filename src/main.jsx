@@ -13,6 +13,7 @@ import OfferDetails from "./pages/OfferDetails.jsx";
 import DembegnaPost from "./pages/DembegnaPost.jsx";
 import { DembegnaOrder } from "./pages/DembegnaOrder.jsx";
 import DembegnaAccount from "./pages/DembegnaAccount.jsx";
+import Details from "./pages/Details.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   { path: "/dembegnapost", element: <DembegnaPost /> },
   { path: "/dembegnaorders", element: <DembegnaOrder /> },
   { path: "/dembegnaaccount", element: <DembegnaAccount /> },
+  { path: "/details", element: <Details /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
