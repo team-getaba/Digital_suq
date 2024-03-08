@@ -13,7 +13,12 @@ const Login = () => {
     console.log(res.fname, res.lname);
     localStorage.setItem("username", res.fname + " " + res.lname);
     localStorage.setItem("userId", res.user_id);
-    res.access_token ? navigate("/dembegnapost") : alert(res.msg);
+    localStorage.setItem("role", res.role);
+    res.access_token
+      ? res.role == "Buyer"
+        ? navigate("/dembegnapost")
+        : navigate("/balesuk")
+      : alert(res.msg);
   };
 
   return (

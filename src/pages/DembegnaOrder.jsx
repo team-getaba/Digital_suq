@@ -21,7 +21,7 @@ export const DembegnaOrder = () => {
     <>
       <Navbar />
       {posts?.map((item, index) => (
-        <Link to={"/details"} key={index}>
+        <Link to="/details" state={{ data: item }} key={index}>
           <OrderCard
             title={item.product_name}
             description={item.detail}

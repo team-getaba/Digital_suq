@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom"; // Import Link from react-
 import { catagorySpecfic } from "../api";
 
 import OrderCard from "../component/OrderCard";
+import { data } from "browserslist";
 
 export default function OfferDetails() {
   const location = useLocation();
@@ -30,17 +31,13 @@ export default function OfferDetails() {
       <div className="w-full h-[4em] bg-white mb-[2em]"></div>
       {list?.map((item, index) => (
         //   // Wrap the entire row with a Link component
-        //   <Link
-        //     to={`/balesuk/offer?catagoryname=${encodeURIComponent(item)}`}
-        //     key={index}
-        //     className=""
-        //   >
-        <OrderCard
-          title={item.product_name}
-          description={item.detail}
-          price={item.price_range}
-        />
-        //   </Link>
+        <Link to={`/details`} key={index} state={{ data: item }}>
+          <OrderCard
+            title={item.product_name}
+            description={item.detail}
+            price={item.price_range}
+          />
+        </Link>
       ))}
     </div>
   );

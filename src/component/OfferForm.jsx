@@ -1,21 +1,46 @@
 import React, { useState } from "react";
+import { offer } from "../api";
 
-const OfferForm = () => {
+const OfferForm = ({ formData }) => {
   const [userData, setUserData] = useState({
     detail: "",
     location: "",
     amount: "",
   });
+  //   export const offer = async (poster_id, post_id, details, price, offerer_id) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
+  //
 
-  const handleSubmit = (e) => {
+  // export const offer = async (poster_id, post_id, details, price, offerer_id) => {
+  //   const data = {
+  //     poster_id: poster_id,
+  //     post_id: post_id,
+  //     details: details,
+  //     price: price,
+  //     offerer_id: offerer_id,
+  //   };
+
+  //   const res = await axios.post(`/offer`, data);
+  //   return res;
+  // };
+
+  const postId = localStorage.getItem("postid");
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("User data:", userData);
+    console.log("//////xxxxxx////", postId);
+    const res = await offer(
+      formData.user_id,
+      String(formData.id),
+      formData.detail,
+      userData.amount,
+      "2",
+      formData.location
+    );
+    console.log("User data:", res);
   };
 
   return (

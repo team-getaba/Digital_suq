@@ -74,13 +74,22 @@ export const catagorySpecfic = async (cattype) => {
   return res;
 };
 
-export const offer = async (poster_id, post_id, details, price, offerer_id) => {
+export const offer = async (
+  poster_id,
+  post_id,
+  details,
+  price,
+  offerer_id,
+  location
+) => {
   const data = {
     poster_id: poster_id,
     post_id: post_id,
     details: details,
     price: price,
+    offerer_name: offerer_id,
     offerer_id: offerer_id,
+    location: location,
   };
 
   const res = await axios.post(`/offer`, data);
