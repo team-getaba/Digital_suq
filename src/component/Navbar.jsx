@@ -6,8 +6,8 @@ const Navbar = ({ username }) => {
     <nav className="bg-gray-800 px-[10%] py-4 flex justify-between items-center text-white">
       <Link to="/dembegnapost">
         <img
-          src="https://w7.pngwing.com/pngs/264/324/png-transparent-logo-shopping-shopping-logo-design-other-flag-free-logo-design-template-thumbnail.png"
-          className="h-[2em]"
+          src="https://www.solutions4ecommerce.com/wp-content/uploads/2018/01/ECommerce_Illustration_.png"
+          className="h-[2em] rounded-[28px]"
         />
       </Link>
       <div className="flex justify-center items-center w-3/4 gap-[10%]">
@@ -20,7 +20,7 @@ const Navbar = ({ username }) => {
       </div>
       <div className="flex justify-center items-center">
         <Link to="/subscribe" className="mr-10 hover:text-gray-300">
-          Subsribe
+          subscribe
         </Link>
         <Link
           to="/Dembegnaaccount"

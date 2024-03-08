@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://digital-suq-api.onrender.com"; // Replace with your main domain
+axios.defaults.baseURL = "https://digital-suq-api.onrender.com/"; // Replace with your main domain
 
 const token = localStorage.getItem("token");
 

@@ -18,7 +18,8 @@ const Login = () => {
       ? res.role == "Buyer"
         ? navigate("/dembegnapost")
         : navigate("/balesuk")
-      : alert(res.msg);
+      : // : navigate("/balesuk")
+        alert(res.msg);
   };
 
   return (

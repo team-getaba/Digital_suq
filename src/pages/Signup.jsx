@@ -8,7 +8,7 @@ const Signup = () => {
   const [psw, setPSW] = useState();
   const [phone, setPhone] = useState();
   const [location, setLocation] = useState();
-  const [role, setRole] = useState("Buyer.data");
+  const [role, setRole] = useState("Buyer");
   const navigate = useNavigate();
   const singupbtn = async () => {
     const res = await SignUpApi(fname, lname, phone, location, role, psw);

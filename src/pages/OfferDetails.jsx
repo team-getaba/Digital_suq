@@ -4,6 +4,7 @@ import { catagorySpecfic } from "../api";
 
 import OrderCard from "../component/OrderCard";
 import { data } from "browserslist";
+import Navbar from "../component/Navbar";
 
 export default function OfferDetails() {
   const location = useLocation();
@@ -28,7 +29,9 @@ export default function OfferDetails() {
   //   to={`/balesuk/offer?catagoryname=${encodeURIComponent(item)}`}
   return (
     <div className="w-full bg-gray-100 min-h-[100vh]">
-      <div className="w-full h-[4em] bg-white mb-[2em]"></div>
+      <div className="w-full h-[4em] bg-white mb-[2em]">
+        <Navbar />
+      </div>
       {list?.map((item, index) => (
         //   // Wrap the entire row with a Link component
         <Link to={`/details`} key={index} state={{ data: item }}>

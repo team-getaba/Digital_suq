@@ -35,7 +35,10 @@ const SubscriptionPlan = () => {
     setSelectedPlan(plans[index]);
     const res = await subScribe(plans[index].price);
     console.log(res?.data?.data?.checkout_url);
-    res?.data?.data?.checkout_url && navigate(res?.data?.data?.checkout_url);
+    const navvv = () => {
+      window.location.href = res?.data?.data?.checkout_url;
+    };
+    res?.data?.data?.checkout_url && navvv();
   };
 
   return (
