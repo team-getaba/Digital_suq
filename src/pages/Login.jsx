@@ -12,6 +12,7 @@ const Login = () => {
     const res = await LoginApi(phone, psw);
     console.log(res.fname, res.lname);
     localStorage.setItem("username", res.fname + " " + res.lname);
+    localStorage.setItem("userId", res.user_id);
     res.access_token ? navigate("/dembegnapost") : alert(res.msg);
   };
 

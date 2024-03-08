@@ -112,6 +112,7 @@ export const postProduct = async (
     location: location,
     price_range: price_range,
     img: img,
+    user_id: 1,
   };
 
   const res = await axios.post("post", data);

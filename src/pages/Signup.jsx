@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SignUpApi } from "../api/index";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [fname, setFName] = useState();
@@ -7,12 +8,12 @@ const Signup = () => {
   const [psw, setPSW] = useState();
   const [phone, setPhone] = useState();
   const [location, setLocation] = useState();
-  const [role, setRole] = useState();
-
+  const [role, setRole] = useState("Buyer.data");
+  const navigate = useNavigate();
   const singupbtn = async () => {
     const res = await SignUpApi(fname, lname, phone, location, role, psw);
     console.log(res);
-    res.access_token ? alert("go") : alert(res.detail);
+    res.access_token ? navigate("/login") : alert(res.detail);
   };
 
   return (
@@ -117,9 +118,8 @@ const Signup = () => {
               id="grid-country"
               onChange={(e) => setRole(e.target.value)}
             >
-              {/* <option>Select a Role</option> */}
-              <option>Seller</option>
               <option>Buyer</option>
+              <option>Seller</option>
             </select>
           </div>
         </div>

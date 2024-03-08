@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../component/Navbar";
+import { postProduct } from "../api";
 
 const DembegnaPost = () => {
   const [productName, setProductName] = useState("");
@@ -11,10 +12,18 @@ const DembegnaPost = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
+    const response = await postProduct(
+      productDetail,
+      category,
+      deliveryLocation,
+      productName,
+      `${minPrice} ${maxPrice}`,
+      ""
+    );
 
+    console.log(response);
     console.log("Form submitted!");
   };
 
