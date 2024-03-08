@@ -118,3 +118,8 @@ export const postProduct = async (
   const res = await axios.post("post", data);
   return res;
 };
+
+export const myPosts = async () => {
+  const res = await axios.get(`post/me`);
+  return res;
+};
