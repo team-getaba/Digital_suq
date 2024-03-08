@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { subScribe } from "../api";
 import Navbar from "../component/Navbar";
 
-const SubscriptionPlan = () => {
+const SubscriptionPlanTwo = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
 
   const plans = [
@@ -37,10 +37,9 @@ const SubscriptionPlan = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto p-8 flex justify-center items-center flex-col">
         <h1 className="text-4xl font-bold mb-6">Subscription Plans</h1>
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-6 w-[40vh]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:w-[70%]">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -81,4 +80,4 @@ const SubscriptionPlan = () => {
   );
 };
 
-export default SubscriptionPlan;
+export default SubscriptionPlanTwo;

@@ -18,7 +18,10 @@ const Navbar = ({ username }) => {
           Orders
         </Link>
       </div>
-      <div>
+      <div className="flex justify-center items-center">
+        <Link to="/subscribe" className="mr-10 hover:text-gray-300">
+          Subsribe
+        </Link>
         <Link
           to="/Dembegnaaccount"
           className=" hover:text-gray-300 flex justify-center items-center gap-3"
