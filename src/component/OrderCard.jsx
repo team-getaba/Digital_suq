@@ -2,7 +2,7 @@ import React from "react";
 
 const OrderCard = ({ title, description, price }) => {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-1">
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-3">
       <div className="md:flex">
         <div className="p-8 w-full">
           <div className="uppercase tracking-wide text-indigo-500 font-semibold text-xl">
