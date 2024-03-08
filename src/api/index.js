@@ -91,3 +91,8 @@ export const offerList = async (post_id) => {
   const res = await axios.get(`post/offer/${post_id}`);
   return res;
 };
+
+export const userDeatil = async () => {
+  const res = await axios.get(`user/account`);
+  return res;
+};
