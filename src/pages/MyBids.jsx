@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import OfferForm from "../component/OfferForm";
 import OfferListTable from "../component/offerListTable";
 import Navbar from "../component/Navbar";
-import { useLocation, Link } from "react-router";
+import { useLocation } from "react-router";
 import { myOffers } from "../api";
+
+import { Link } from "react-router-dom";
 
 const MyBids = () => {
   const [posts, setPosts] = useState();
