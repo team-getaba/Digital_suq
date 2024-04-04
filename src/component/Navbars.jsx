@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="max-w-md text-2xl font-bold  text-center md:text-3xl md:text-left">
-          DigitalSuq
+          EZI SUQ
         </div>
         {/* Menu Items */}
         <div className="hidden space-x-6 md:flex">
@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* Button */}
         <Link
           to="#"
-          className="hidden p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block"
+          className="hidden p-3 px-6 pt-2 text-green-600 bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block"
         >
           Get Started
         </Link>

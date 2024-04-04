@@ -28,20 +28,24 @@ export default function OfferDetails() {
 
   //   to={`/balesuk/offer?catagoryname=${encodeURIComponent(item)}`}
   return (
-    <div className="w-full bg-gray-100 min-h-[100vh]">
-      <div className="w-full h-[4em] bg-white mb-[2em]">
+    <div className="w-full bg-[#abb8c340] min-h-[calc(100vh-4.8em)]">
+      <div className="w-full bg-white">
         <Navbar />
       </div>
-      {list?.map((item, index) => (
-        //   // Wrap the entire row with a Link component
-        <Link to={`/details`} key={index} state={{ data: item }}>
-          <OrderCard
-            title={item.product_name}
-            description={item.detail}
-            price={item.price_range}
-          />
-        </Link>
-      ))}
+      {list
+        ?.slice()
+        ?.reverse()
+        ?.map((item, index) => (
+          //   // Wrap the entire row with a Link component
+          <Link to={`/details`} key={index} state={{ data: item }}>
+            <OrderCard
+              title={item.product_name}
+              description={item.detail}
+              price={item.price_range}
+            />
+          </Link>
+        ))}
+      {list?.length == 0 && <div>no posts for now</div>}
     </div>
   );
 }

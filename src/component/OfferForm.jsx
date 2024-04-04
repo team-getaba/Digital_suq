@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { offer } from "../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OfferForm = ({ formData }) => {
   const [userData, setUserData] = useState({
@@ -8,7 +10,7 @@ const OfferForm = ({ formData }) => {
     amount: "",
   });
   //   export const offer = async (poster_id, post_id, details, price, offerer_id) => {
-
+  console.log("form data: ", formData);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
@@ -29,27 +31,28 @@ const OfferForm = ({ formData }) => {
   // };
 
   const postId = localStorage.getItem("postid");
+  const userName = localStorage.getItem("username");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("//////xxxxxx////", postId);
     const res = await offer(
       formData.user_id,
       String(formData.id),
-      formData.detail,
+      userData.detail,
       userData.amount,
-      "2",
-      formData.location
+      userName,
+      userData.location
     );
-    console.log("User data:", res);
+    console.log("User data: to push", userData);
+    res?.data && toast("offer set succesfuly");
+    // res?.data && alert("offer set succesfuly");
   };
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">Enter Beid Details and Amount</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-6"
-      >
+      <h1 className="text-2xl font-bold mb-4">Enter Bid Details and Amount</h1>
+      <form onSubmit={handleSubmit} className="bg-white rounded-lg p-6">
         <div className="mb-4">
           <label
             htmlFor="firstName"
@@ -59,8 +62,8 @@ const OfferForm = ({ formData }) => {
           </label>
           <input
             type="text"
-            id="firstName"
-            name="firstName"
+            id="detail"
+            name="detail"
             value={userData.detail}
             onChange={handleChange}
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -88,7 +91,7 @@ const OfferForm = ({ formData }) => {
             htmlFor="amount"
             className="block text-gray-700 font-bold mb-2"
           >
-            Bied Amount:
+            Bid Amount:
           </label>
           <input
             type="text"
@@ -101,11 +104,12 @@ const OfferForm = ({ formData }) => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Submit
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

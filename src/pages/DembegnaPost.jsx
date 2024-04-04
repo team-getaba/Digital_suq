@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../component/Navbar";
-import { postProduct } from "../api";
+import { catagoryList, postProduct } from "../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DembegnaPost = () => {
   const [productName, setProductName] = useState("");
+  const [productCategories, setProductCategories] = useState([]);
+
   const [productDetail, setProductDetail] = useState("");
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
@@ -11,6 +15,15 @@ const DembegnaPost = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+
+  useEffect(() => {
+    const res = async () => {
+      const res = await catagoryList();
+      res.data && setProductCategories(res.data);
+      setCategory(res?.data?.cat[0]);
+    };
+    res();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,13 +38,18 @@ const DembegnaPost = () => {
 
     console.log(response);
     console.log("Form submitted!");
+    response.data && toast("post set succesfuly!");
+    // response.data && alert("post set succesfuly");
   };
 
   return (
     <>
       <Navbar />
-      <div className="p-10 ">
-        <form onSubmit={handleSubmit} className="  max-w-2xl mx-auto p-8 m-8">
+      <div className="p-10  bg-[#abb8c340] min-h-[calc(100vh-4.8em)]">
+        <form
+          onSubmit={handleSubmit}
+          className="  max-w-2xl bg-white mx-auto p-8 m-8 "
+        >
           <div className="mb-4 ">
             <label htmlFor="productName" className="  block font-bold mb-2">
               Product Name
@@ -68,11 +86,15 @@ const DembegnaPost = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="">Select category</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Books">Books</option>
-              {/* Add more options as needed */}
+              {productCategories?.cat?.map((item, index) => (
+                <option
+                  value={item}
+                  key={index}
+                  // selected={index == 0 ? "selected" : "notselected"}
+                >
+                  {item}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -131,12 +153,13 @@ const DembegnaPost = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Submit
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

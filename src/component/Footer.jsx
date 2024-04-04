@@ -9,7 +9,7 @@ import instagramLogo from "../assets/images/icon-instagram.svg";
 
 const Footer = () => {
   return (
-    <div className="bg-veryDarkBlue">
+    <div className="bg-veryDarkBlue border-2">
       {/* Flex Container */}
       <div className="container flex flex-col-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
         {/* Logo and social links container */}
@@ -18,7 +18,7 @@ const Footer = () => {
             Copyright © 2022, All Rights Reserved
           </div>
           {/* Logo */}
-          <div>DigitalSuq</div>
+          <div>IZE SUQ</div>
           {/* Social Links Container */}
           <div className="flex justify-center space-x-4">
             {/* Link 1 */}
@@ -50,7 +50,7 @@ const Footer = () => {
               Home
             </Link>
             <Link to="#" className="hover:text-brightRed">
-              Pricing
+              Category
             </Link>
             <Link to="#" className="hover:text-brightRed">
               Products

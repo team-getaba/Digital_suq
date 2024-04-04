@@ -17,6 +17,7 @@ import DembegnaAccount from "./pages/DembegnaAccount.jsx";
 import SubscriptionPlan from "./pages/payment.jsx";
 
 import PostDetail from "./pages/PostDetail.jsx";
+import MyBids from "./pages/MyBids.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
   { path: "/dembegnaaccount", element: <DembegnaAccount /> },
   { path: "/subscribe", element: <SubscriptionPlan /> },
   { path: "/details", element: <PostDetail /> },
+  { path: "/mybids", element: <MyBids /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

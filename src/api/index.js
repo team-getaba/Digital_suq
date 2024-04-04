@@ -1,5 +1,6 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://digital-suq-api.onrender.com/"; // Replace with your main domain
+// axios.defaults.baseURL = "http://192.168.43.24:8000/"; // Replace with your main domain
+axios.defaults.baseURL = "https://ize-suq-api.onrender.com/"; // Replace with your main domain
 
 const token = localStorage.getItem("token");
 
@@ -135,6 +136,11 @@ export const postProduct = async (
 
 export const myPosts = async () => {
   const res = await axios.get(`post/me`);
+  return res;
+};
+
+export const myOffers = async () => {
+  const res = await axios.get(`/offer/mine`);
   return res;
 };
 

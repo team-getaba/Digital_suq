@@ -13,7 +13,7 @@ const CallToAction = () => {
         <div>
           <Link
             to="/login"
-            className="p-3 px-6 pt-2 text-brightRed bg-blue-500 text-white rounded-full shadow-2xl baseline hover:bg-gray-900"
+            className="h-[4vh] px-4 text-white bg-green-600 bg-brightRed flex justify-center items-center rounded-[20px] baseline hover:bg-brightRedLight"
           >
             Get Started
           </Link>

@@ -17,7 +17,7 @@ function App() {
       <Hero />
       <Features />
       {/* <Testimonial /> */}
-      <SubscriptionPlanTwo />
+      {/* <SubscriptionPlanTwo /> */}
       <CallToAction />
       <Footer />
     </div>

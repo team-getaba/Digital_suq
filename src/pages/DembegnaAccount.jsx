@@ -14,63 +14,96 @@ const DembegnaAccount = () => {
   useEffect(() => {
     fetchUserData();
   }, []);
+  console.log("usedata", userData);
+
+  const user = {
+    created_at: userData?.created_at,
+    disabled: userData?.disabled,
+    email: userData?.email,
+    firstName: userData?.firstName,
+    gender: userData?.gender,
+    id: userData?.id,
+    lastName: userData?.lastName,
+    location: userData?.location,
+    others: userData?.others,
+    phone: userData?.phone,
+    plan: userData?.plan,
+    plan_expire_date: userData?.plan_expire_date,
+    role: userData?.role,
+    verified: userData?.verified,
+  };
 
   return (
     <>
       <Navbar />
-      <div className="container mx-auto mt-8">
-        <h1 className="text-2xl font-bold mb-4">Account Details</h1>
+      <div className="min-h-[calc(100vh_-_4.8em)] bg-[#abb8c340] flex items-center flex-col">
+        <div className="w-full h-[15vh] bg-green-600 relative">
+          <div className="bg-green-600 h-[10em] w-[10em] rounded-full absolute bottom-[-5em] ml-[10vw]">
+            <img
+              src="https://d34u8crftukxnk.cloudfront.net/slackpress/prod/sites/6/E12KS1G65-W0168RE00G7-133faf432639-512.jpeg"
+              className="h-full w-full rounded-full"
+            />
+          </div>
+        </div>
+        <h1 className="text-2xl font-bold my-[5vh]">Account Details</h1>
         {userData ? (
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                First Name:
-              </label>
-              <p className="text-gray-900">{userData.firstName}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Last Name:
-              </label>
-              <p className="text-gray-900">{userData.lastName}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Phone:
-              </label>
-              <p className="text-gray-900">{userData.phone}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Location:
-              </label>
-              <p className="text-gray-900">{userData.location}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                created at:
-              </label>
-              <p className="text-gray-900">{userData.created_at}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                plan expaired date:
-              </label>
-              <p className="text-gray-900">{userData.plan_expire_date}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                plan:
-              </label>
-              <p className="text-gray-900">{userData.plan}</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                verified:
-              </label>
-              <p className="text-gray-900">
-                {userData.verified ? "yes" : "no"}
-              </p>
+          <div className="w-1/3 rounded-lg">
+            <div className="flex bg-white flex-col w-full justify-center py-12 sm:px-6 lg:px-8">
+              <div className="flex flex-wrap w-full ">
+                <div className="px-4 w-full flex flex-wrap">
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      First Name:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.firstName}
+                    </span>
+                  </div>
+
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Last Name:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.lastName}
+                    </span>
+                  </div>
+
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Phone:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.phone}
+                    </span>
+                  </div>
+
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Email:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.email}
+                    </span>
+                  </div>
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      Role:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.role}
+                    </span>
+                  </div>
+                  <div className="mb-[4vh] w-1/2 ">
+                    <label className="block text-sm font-medium text-gray-700">
+                      location:
+                    </label>
+                    <span className="block mt-1 text-lg font-semibold text-gray-900">
+                      {user.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
